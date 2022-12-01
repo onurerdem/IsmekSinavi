@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">IsmekSinavi</string>
+    <string name="question">Android\'i seviyor musunuz?</string>
+    <string name="answer">Cevap</string>
+</resources>
