@@ -7,15 +7,24 @@ import com.onurerdem.ismeksinavi.R
 import com.onurerdem.ismeksinavi.recyclerview.model.AnswerModel
 import com.onurerdem.ismeksinavi.recyclerview.viewholder.AnswerListViewHolder
 
-class AnswerAdapter(val answerList: ArrayList<AnswerModel>) :
-    RecyclerView.Adapter<AnswerListViewHolder>() {
+class AnswerAdapter(val answerList: ArrayList<AnswerModel>) : RecyclerView.Adapter<AnswerListViewHolder>() {
+    private lateinit var answerListener : onAnswerClickListener
+
+    interface onAnswerClickListener{
+        fun onAnswerClick(position: Int)
+    }
+
+    fun setOnAnswerClickListener(listener: onAnswerClickListener){
+        answerListener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnswerListViewHolder {
         return AnswerListViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.answers,
                 parent,
                 false
-            )
+            ), answerListener
         )
     }
 
